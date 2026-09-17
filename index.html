@@ -57,7 +57,7 @@
     ::-webkit-scrollbar{width:6px} ::-webkit-scrollbar-track{background:#0d0c0a} ::-webkit-scrollbar-thumb{background:#d4af37; border-radius:3px}
   </style>
 </head>
-<body>
+<body class="lenis-stopped">
 
   <div id="progress"></div>
 
@@ -100,8 +100,8 @@
         autoLoad: true
       },
       // ===== MUSIK SAAT UNDANGAN DIBUKA =====
-musicURL:"./musik.mp3", // GANTI: ./musik.mp3 atau URL
-musik: {
+  musicURL:"./musik.mp3", // GANTI: ./musik.mp3 atau URL
+  musik: {
   autoplay: true, // true = otomatis play saat buka undangan
   loop: true, // true = musik berulang
   volume: 0.6, // 0.0 - 1.0 (0.6 = 60%)
@@ -110,7 +110,7 @@ musik: {
     };
   </script>
 
-  <audio id="bgMusic" loop preload="none"></audio>
+  <audio id="bgMusic" loop preload="auto"></audio>
 
   <div class="fixed top-3 right-3 z-[100] pointer-events-none max-w-[70vw]">
     <div class="bg-gradient-to-r from-[#d4af37] to-[#8c6b1a] text-black text-[9px] tracking-[0.18em] font-bold px-3 py-1.5 rounded-full shadow-[0_0_18px_rgba(212,175,55,0.45)] flex items-center gap-1.5">
@@ -119,9 +119,11 @@ musik: {
     </div>
   </div>
 
-  <button id="musicBtn" class="fixed bottom-5 right-5 z-[90] w-11 h-11 rounded-full bg-[#1a1814] border border-[#d4af37]/30 backdrop-blur-xl flex items-center justify-center shadow-[0_0_18px_rgba(212,175,55,0.2)] hidden">
-    <span id="musicIcon" class="text-[#d4af37]">♫</span>
+  <!-- Tombol Musik -->
+  <button id="musicBtn" aria-label="Kontrol Audio" class="fixed bottom-5 right-5 z-[90] w-11 h-11 rounded-full bg-[#1a1814] border border-[#d4af37]/30 backdrop-blur-xl flex items-center justify-center shadow-[0_0_18px_rgba(212,175,55,0.2)] hidden">
+    <span id="musicIcon" class="text-[#d4af37]">🎵</span>
   </button>
+  
 </body>
   <!-- COVER -->
   <section id="cover" class="fixed inset-0 z-[80] flex items-center justify-center overflow-hidden bg-[#0a0907] transition-opacity duration-[1200ms]">
