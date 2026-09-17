@@ -78,7 +78,6 @@
       gunungan:"./gunungan-emas.webp",
       gallery:["./joglo-emas.webp","./gunungan-emas.webp","https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800","https://images.unsplash.com/photo-1519741497674-611481863552?w=800","https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800","https://images.unsplash.com/photo-1520854221256-17451ccdf07b?w=800"],
       musicURL:"https://drive.google.com/file/d/18_2QyElJmhaf4hy72ufwb6DMtGojWBcj/view?usp=sharing",
-      scriptURL:"https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec",
       waAdmin:"6281234567890",
       rekening:[
         {bank:"BCA",no:"1234567890",nama:"Raden Arjuna Wijaya",logo:"BCA"},
@@ -91,16 +90,17 @@
         {tahun:"2024",judul:"Lamaran Adat Jawa",cerita:"Dengan iringan gong dan kendang, keluarga besar meminang secara adat. Sirih, tebu, dan harapan disatukan."},
         {tahun:"2026",judul:"Menuju Pelaminan Suci",cerita:"Ijab kabul akan terucap, dua jiwa menjadi satu dalam restu leluhur dan doa semesta."}
       ],
-      teksPembuka:"Dengan memohon rahmat Gusti Allah, kami bermaksud menyelenggarakan pawiwahan ageng dalam balutan adat Jawi luhur."
+      teksPembuka:"Dengan memohon rahmat Gusti Allah, kami bermaksud menyelenggarakan pawiwahan ageng dalam balutan adat Jawi luhur.",
+      
+      // Data terintegrasi dimasukkan ke dalam objek CONFIG
+      scriptURL: "https://script.google.com/macros/s/AKfycbyY7WdtGvTzCSTam4pIxPTeRsXDAKmGHMQJzxvZ5mko3cE5BFSq9ed12uw0XWuWzUXe/exec",
+      googleDrive: {
+        enabled: true,
+        sheetId: "14XWABgGQl5X5cQ97qTK1VePIo_l5hUNKKq8zoInzZ8s", // Diambil ID-nya saja dari URL
+        folderId: "1yTfV6EvgDjRriEM8ETq2LuaHHdikOa4W", // Diambil ID-nya saja dari URL
+        autoLoad: true
+      }
     };
-
-    scriptURL:"https://script.google.com/macros/s/AKfycbyY7WdtGvTzCSTam4pIxPTeRsXDAKmGHMQJzxvZ5mko3cE5BFSq9ed12uw0XWuWzUXe/exec", // URL dari Langkah 4
-  googleDrive: {
-  enabled: true,
-  sheetId: "https://docs.google.com/spreadsheets/d/14XWABgGQl5X5cQ97qTK1VePIo_l5hUNKKq8zoInzZ8s/edit?gid=0#gid=0", // ID dari Langkah 1
-  folderId: "https://drive.google.com/drive/folders/1yTfV6EvgDjRriEM8ETq2LuaHHdikOa4W?usp=drive_link", // ID dari Langkah 2
-  autoLoad: true
-};
   </script>
 
   <audio id="bgMusic" loop preload="none"></audio>
@@ -115,7 +115,7 @@
   <button id="musicBtn" class="fixed bottom-5 right-5 z-[90] w-11 h-11 rounded-full bg-[#1a1814] border border-[#d4af37]/30 backdrop-blur-xl flex items-center justify-center shadow-[0_0_18px_rgba(212,175,55,0.2)] hidden">
     <span id="musicIcon" class="text-[#d4af37]">♫</span>
   </button>
-
+</body>
   <!-- COVER -->
   <section id="cover" class="fixed inset-0 z-[80] flex items-center justify-center overflow-hidden bg-[#0a0907] transition-opacity duration-[1200ms]">
     <div class="absolute inset-0 batik-pattern opacity-30 parallax-layer" data-speed="0.2"></div>
@@ -294,28 +294,88 @@
     </div>
   </section>
 
-  <!-- RSVP -->
-  <section id="rsvp" class="relative py-20 px-5 overflow-hidden">
-    <div class="absolute inset-0 bg-[#0f0e0c]"></div>
-    <div class="relative max-w-5xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-8 items-start">
-        <div class="reveal"><p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">KONFIRMASI KEHADIRAN</p><h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-6">RSVP</h2><p class="text-[13px] text-[#f5e6c8]/60 leading-relaxed mb-8 font-light">Merupakan kehormatan bagi kami apabila berkenan hadir memberikan doa restu.</p>
-          <div class="gold-border-glow rounded-[18px] p-[1px]"><div class="rounded-[17px] bg-[#1a1814] p-5">
+<!-- RSVP -->
+<section id="rsvp" class="relative py-20 px-5 overflow-hidden">
+  <div class="absolute inset-0 bg-[#0f0e0c]"></div>
+  <div class="relative max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      
+      <!-- Kolom Kiri: Form RSVP -->
+      <div class="reveal">
+        <p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">KONFIRMASI KEHADIRAN</p>
+        <h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-6">RSVP</h2>
+        <p class="text-[13px] text-[#f5e6c8]/60 leading-relaxed mb-8 font-light">Merupakan kehormatan bagi kami apabila berkenan hadir memberikan doa restu.</p>
+        
+        <div class="gold-border-glow rounded-[18px] p-[1px]">
+          <div class="rounded-[17px] bg-[#1a1814] p-5">
             <form id="rsvpForm" class="space-y-4">
-              <div><label class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">NAMA LENGKAP</label><input type="text" id="rsvpNama" placeholder="Tulis nama Anda" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40" required></div>
-              <div class="grid grid-cols-2 gap-3"><div><label class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">JUMLAH TAMU</label><select id="rsvpTamu" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8]"><option value="1">1 Orang</option><option value="2">2 Orang</option><option value="3">3 Orang</option><option value="4">4 Orang</option></select></div><div><label class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">KEHADIRAN</label><select id="rsvpHadir" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8]"><option value="Hadir">Hadir</option><option value="Tidak Hadir">Tidak Hadir</option><option value="Ragu">Ragu</option></select></div></div>
-              <div><label class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">PESAN</label><textarea id="rsvpPesan" placeholder="Tulis doa terbaik..." rows="3" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-[16px] px-4 py-3 text-[13px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none resize-none"></textarea></div>
-              <button type="submit" class="w-full bg-gradient-to-r from-[#d4af37] to-[#8c6b1a] text-black font-bold tracking-[0.18em] text-[11px] py-3.5 rounded-full flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all"><span>KIRIM KONFIRMASI</span></button>
+              <!-- Nama -->
+              <div>
+                <label for="rsvpNama" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">NAMA LENGKAP</label>
+                <input type="text" id="rsvpNama" placeholder="Tulis nama Anda" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
+              </div>
+              
+              <!-- Tamu & Kehadiran -->
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label for="rsvpTamu" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">JUMLAH TAMU</label>
+                  <select id="rsvpTamu" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
+                    <option value="1">1 Orang</option>
+                    <option value="2">2 Orang</option>
+                    <option value="3">3 Orang</option>
+                    <option value="4">4 Orang</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="rsvpHadir" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">KEHADIRAN</label>
+                  <select id="rsvpHadir" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
+                    <option value="Hadir">Hadir</option>
+                    <option value="Tidak Hadir">Tidak Hadir</option>
+                    <option value="Ragu">Ragu</option>
+                  </select>
+                </div>
+              </div>
+              
+              <!-- Pesan -->
+              <div>
+                <label for="rsvpPesan" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">PESAN</label>
+                <textarea id="rsvpPesan" placeholder="Tulis doa terbaik..." rows="3" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-[16px] px-4 py-3 text-[13px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors resize-none"></textarea>
+              </div>
+              
+              <button type="submit" class="w-full bg-gradient-to-r from-[#d4af37] to-[#8c6b1a] text-black font-bold tracking-[0.18em] text-[11px] py-3.5 rounded-full flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all">
+                <span>KIRIM KONFIRMASI</span>
+              </button>
             </form>
           </div>
-          </div>
-        </div>
-        <div class="reveal reveal-delay-1"><p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">UCAPAN & DOA</p><h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-6">Pangestuti</h2><div id="ucapanList" class="space-y-3 max-h-[500px] overflow-y-auto pr-1"></div>
-          <div class="mt-6 gold-border-glow rounded-[18px] p-[1px]"><div class="rounded-[17px] bg-[#1a1814] p-5"><h4 class="font-cinzel text-[12px] text-[#f5e6c8] mb-4 flex items-center gap-2">✦ Kirim Doa Restu</h4><form id="ucapanForm" class="space-y-3"><input type="text" id="ucapanNama" placeholder="Nama Anda" class="w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[12px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none"><textarea id="ucapanPesan" placeholder="Tulis ucapan..." rows="3" class="w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-[16px] px-4 py-3 text-[12px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none resize-none"></textarea><button type="submit" class="w-full bg-[#f5e6c8] text-black font-bold tracking-[0.18em] text-[10px] py-3 rounded-full">KIRIM UCAPAN</button></form></div></div>
         </div>
       </div>
+      
+      <!-- Kolom Kanan: Ucapan & Doa -->
+      <div class="reveal reveal-delay-1">
+        <p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">UCAPAN & DOA</p>
+        <h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-6">Pangestuti</h2>
+        
+        <!-- List Ucapan -->
+        <div id="ucapanList" class="space-y-3 max-h-[500px] overflow-y-auto pr-1">
+          <!-- Data ucapan akan masuk ke sini via JS -->
+        </div>
+        
+        <!-- Form Kirim Doa -->
+        <div class="mt-6 gold-border-glow rounded-[18px] p-[1px]">
+          <div class="rounded-[17px] bg-[#1a1814] p-5">
+            <h4 class="font-cinzel text-[12px] text-[#f5e6c8] mb-4 flex items-center gap-2">✦ Kirim Doa Restu</h4>
+            <form id="ucapanForm" class="space-y-3">
+              <input type="text" id="ucapanNama" placeholder="Nama Anda" class="w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[12px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
+              <textarea id="ucapanPesan" placeholder="Tulis ucapan..." rows="3" class="w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-[16px] px-4 py-3 text-[12px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors resize-none" required></textarea>
+              <button type="submit" class="w-full bg-[#f5e6c8] text-black font-bold tracking-[0.18em] text-[10px] py-3 rounded-full hover:bg-white transition-colors">KIRIM UCAPAN</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- AMPLOP -->
   <section id="amplop" class="relative py-20 px-5 overflow-hidden">
