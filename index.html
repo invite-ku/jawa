@@ -564,6 +564,54 @@
         setTimeout(()=>{ cover.style.display='none'; lenis.start(); },2000);
       });
 
+     // 3. Audio & Cover Control
+      const bgMusic = document.getElementById('bgMusic');
+      const musicBtn = document.getElementById('musicBtn');
+      const musicIcon = document.getElementById('musicIcon');
+      const btnBuka = document.getElementById('btnBuka');
+      const cover = document.getElementById('cover');
+
+      bgMusic.src = CONFIG.musicURL;
+      bgMusic.loop = CONFIG.musik.loop;
+      bgMusic.volume = CONFIG.musik.volume;
+
+      let isPlaying = false;
+
+      btnBuka.addEventListener('click', () => {
+        // Buka Tirai
+        cover.classList.add('curtain-open');
+        document.body.classList.remove('lenis-stopped');
+        
+        setTimeout(() => {
+          cover.style.opacity = '0';
+          setTimeout(() => { cover.style.display = 'none'; }, 1200);
+        }, 800);
+
+        // Putar Musik
+        if (CONFIG.musik.autoplay) {
+          bgMusic.play().then(() => {
+            isPlaying = true;
+            musicBtn.classList.remove('hidden');
+            musicIcon.innerText = '⏸';
+          }).catch(() => {
+            musicBtn.classList.remove('hidden');
+            musicIcon.innerText = '▶';
+          });
+        }
+      });
+
+      musicBtn.addEventListener('click', () => {
+        if (isPlaying) {
+          bgMusic.pause();
+          musicIcon.innerText = '▶';
+          isPlaying = false;
+        } else {
+          bgMusic.play();
+          musicIcon.innerText = '⏸';
+          isPlaying = true;
+        }
+      });
+      
       // Lenis stop saat cover masih ada
       lenis.stop();
 
