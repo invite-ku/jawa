@@ -64,9 +64,28 @@
   <!-- CONFIG - EDIT DISINI -->
   <script>
     const CONFIG = {
-      pria: { nama:"Raden Arjuna", namaLengkap:"Raden Arjuna Wijaya, S.T.", foto:"./joglo.jpeg", ortu:"Putra dari Bpk. Sutejo & Ibu Sulastri" },
-      wanita: { nama:"Srikandi", namaLengkap:"Dewi Srikandi Ayu, S.Keb.", foto:"./gunungan-emas.webp", ortu:"Putri dari Bpk. Hadi Pranoto & Ibu Endang" },
-      tanggalAkad:"2026-11-20T08:00:00",
+      // ===== SAMPUL DEPAN / COVER - GANTI DISINI =====
+      sampul: {
+        judulAtas: "PAWIWAHAN AGENG", // teks kecil di atas nama
+        judulBawah: "Kepada Yth. Bapak/Ibu/Saudara/i", // teks di bawah nama
+        tombol: "BUKA UNDANGAN", // teks tombol
+        background: "./joglo-emas.webp", // background sampul (kalau mau beda)
+      },
+      // ===== GAMBAR KEMANTEN - GANTI FOTO PENGANTIN DISINI =====
+      // Foto pria & wanita pakai file terpisah biar gak bingung sama foto joglo
+      // Upload foto kamu dengan nama: pria.jpg & wanita.jpg
+      pria: { 
+        nama:"Raden Arjuna", 
+        namaLengkap:"Raden Arjuna Wijaya, S.T.", 
+        foto:"./pria.jpg", // GANTI: ./pria.jpg atau ./foto-pengantin-pria.jpg
+        ortu:"Putra dari Bpk. Sutejo & Ibu Sulastri" 
+      },
+      wanita: { 
+        nama:"Srikandi", 
+        namaLengkap:"Dewi Srikandi Ayu, S.Keb.", 
+        foto:"./wanita.jpg", // GANTI: ./wanita.jpg atau ./foto-pengantin-wanita.jpg
+        ortu:"Putri dari Bpk. Hadi Pranoto & Ibu Endang" 
+      },
       tanggalResepsi:"2026-11-20T11:00:00",
       lokasiAkad:"Dalem Ageng Keraton Yogyakarta",
       alamatAkad:"Jl. Rotowijayan No.1, Panembahan, Kraton, Yogyakarta",
@@ -76,7 +95,11 @@
       mapsResepsi:"https://maps.google.com/?q=Royal+Ambarrukmo+Yogyakarta",
       bgJoglo:"./joglo.jpeg", // TETAP PAKAI JOGLO EMAS
       gunungan:"./gunungan-emas.webp",
-      gallery:["./joglo-emas.webp","./gunungan-emas.webp","https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800","https://images.unsplash.com/photo-1519741497674-611481863552?w=800","https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800","https://images.unsplash.com/photo-1520854221256-17451ccdf07b?w=800"],
+      gallery:["./joglo-emas.webp","./gunungan-emas.webp",
+               "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800",
+               "https://images.unsplash.com/photo-1519741497674-611481863552?w=800",
+               "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800",
+               "https://images.unsplash.com/photo-1520854221256-17451ccdf07b?w=800"],
       waAdmin:"6281234567890",
       rekening:[
         {bank:"BCA",no:"1234567890",nama:"Raden Arjuna Wijaya",logo:"BCA"},
