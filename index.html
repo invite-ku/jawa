@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pawiwahan Ageng - Joglo Emas Smooth Motion</title>
+  <title>Pawiwahan Ageng - Alfarizi & Elfina</title>
   
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
     .gold-border-glow{ box-shadow:0 0 0 1px rgba(212,175,55,0.25),0 0 18px rgba(212,175,55,0.12); position:relative; }
     .gold-border-glow::before{ content:''; position:absolute; inset:-1px; background:linear-gradient(120deg,transparent,rgba(212,175,55,0.35),transparent); background-size:200% 100%; animation:shimmer 2.5s linear infinite; border-radius:inherit; pointer-events:none; z-index:-1; }
     
-    /* SMOOTH REVEAL - lebih halus */
+    /* SMOOTH REVEAL */
     .reveal{ opacity:0; transform:translateY(60px) scale(0.98); filter:blur(6px); transition:all 1.2s cubic-bezier(.16,1,.3,1); will-change:transform,opacity; }
     .reveal.revealed{ opacity:1; transform:translateY(0) scale(1); filter:blur(0); }
     .reveal-delay-1{ transition-delay:0.1s } .reveal-delay-2{ transition-delay:0.2s } .reveal-delay-3{ transition-delay:0.3s }
@@ -41,13 +41,9 @@
     
     /* Parallax layers */
     .parallax-layer{ will-change:transform; transform:translateZ(0); }
-    .parallax-slow{ transform:translateY(var(--parallax-slow,0)); }
-    .parallax-medium{ transform:translateY(var(--parallax-medium,0)); }
-    .parallax-fast{ transform:translateY(var(--parallax-fast,0)); }
     
     @keyframes floatY{ 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-18px) rotate(1deg)} }
     @keyframes shimmer{ 0%{background-position:-200% 0} 100%{background-position:200% 0} }
-    @keyframes pulse{ 50%{opacity:.5} }
     .anim-float{ animation:floatY 6s ease-in-out infinite; }
     
     /* Smooth image hover */
@@ -61,61 +57,58 @@
 
   <div id="progress"></div>
 
-  <!-- CONFIG - EDIT DISINI -->
+  <!-- CONFIG TEMPLATE -->
   <script>
     const CONFIG = {
-      // ===== SAMPUL DEPAN / COVER - GANTI DISINI =====
       sampul: {
         judulAtas: "PAWIWAHAN AGENG",
         judulBawah: "Kepada Yth. Bapak/Ibu/Saudara/i",
         tombol: "BUKA UNDANGAN",
         background: "./joglo.jpeg",
-        gambarMelayang: "./pria.jpg", // GANTI: Gambar/foto melayang di cover depan (misal: ./cover-logo.png atau ./gunungan-emas.webp)
+        gambarMelayang: "./pria.jpg",
       },
-      // ===== GAMBAR KEMANTEN - GANTI FOTO PENGANTIN DISINI =====
       pria: { 
-        nama:"Raden Arjuna", 
-        namaLengkap:"Raden Arjuna Wijaya, S.T.", 
-        foto:"./pria.jpg", // GANTI: File foto pengantin pria
-        ortu:"Putra dari Bpk. Sutejo & Ibu Sulastri" 
+        nama: "Alfarizi", 
+        namaLengkap: "M. Nur Alfarizi", 
+        foto: "./pria.jpg", 
+        ortu: "Putra dari Bapak & Ibu" 
       },
       wanita: { 
-        nama:"Srikandi", 
-        namaLengkap:"Dewi Srikandi Ayu, S.Keb.", 
-        foto:"./wanita.jpg", // GANTI: File foto pengantin wanita
-        ortu:"Putri dari Bpk. Hadi Pranoto & Ibu Endang" 
+        nama: "Elfina", 
+        namaLengkap: "Melinda Elfina Rahmawaty", 
+        foto: "./wanita.jpg", 
+        ortu: "Putri dari Bapak & Ibu" 
       },
-      tanggalAkad:"2026-11-20T11:00:00",
-      tanggalResepsi:"2026-11-20T11:00:00",
-      lokasiAkad:"Dalem Ageng Keraton Yogyakarta",
-      alamatAkad:"Jl. Rotowijayan No.1, Panembahan, Kraton, Yogyakarta",
-      mapsAkad:"https://maps.google.com/?q=Keraton+Yogyakarta",
-      lokasiResepsi:"Pendopo Royal Ambarrukmo",
-      alamatResepsi:"Jl. Laksda Adisucipto No.81, Sleman, Yogyakarta",
-      mapsResepsi:"https://maps.google.com/?q=Royal+Ambarrukmo+Yogyakarta",
-      bgJoglo:"./joglo.jpeg",
-      gunungan:"./gunungan-emas.webp",
-      gallery:[
-            "./galeri1.jpg",
-            "./galeri2.jpg",
-            "./galeri3.jpg",
-            "./galeri4.jpg",
-            "./galeri5.jpg",
-            "./galeri6.jpg"
-        ],
-      waAdmin:"6281234567890",
-      rekening:[
-        {bank:"BCA",no:"1234567890",nama:"Raden Arjuna Wijaya",logo:"BCA"},
-        {bank:"Mandiri",no:"0987654321",nama:"Dewi Srikandi Ayu",logo:"MANDIRI"},
-        {bank:"QRIS",no:"QRIS All Payment",nama:"Scan untuk semua e-wallet",logo:"QRIS",qris:true}
+      tanggalAkad: "2026-10-03T08:00:00",
+      tanggalResepsi: "2026-10-03T11:00:00",
+      lokasiAkad: "Dalem Ageng Keraton Yogyakarta",
+      alamatAkad: "Jl. Rotowijayan No.1, Panembahan, Kraton, Yogyakarta",
+      mapsAkad: "https://maps.google.com/?q=Keraton+Yogyakarta",
+      lokasiResepsi: "Pendopo Royal Ambarrukmo",
+      alamatResepsi: "Jl. Laksda Adisucipto No.81, Sleman, Yogyakarta",
+      mapsResepsi: "https://maps.google.com/?q=Royal+Ambarrukmo+Yogyakarta",
+      bgJoglo: "./joglo.jpeg",
+      gunungan: "./gunungan-emas.webp",
+      gallery: [
+        "./galeri1.jpg",
+        "./galeri2.jpg",
+        "./galeri3.jpg",
+        "./galeri4.jpg",
+        "./galeri5.jpg",
+        "./galeri6.jpg"
       ],
-      loveStory:[
-        {tahun:"2019",judul:"Pertemuan Pertama",cerita:"Bertemu di pendopo kampus dalam acara pewayangan. Arjuna terpukau oleh Srikandi yang memainkan gamelan dengan anggun."},
-        {tahun:"2021",judul:"Janji di Candi Prambanan",cerita:"Di senja yang keemasan, di antara kemegahan candi, Arjuna mengutarakan kesungguhan hati untuk meminang."},
-        {tahun:"2024",judul:"Lamaran Adat Jawa",cerita:"Dengan iringan gong dan kendang, keluarga besar meminang secara adat. Sirih, tebu, dan harapan disatukan."},
-        {tahun:"2026",judul:"Menuju Pelaminan Suci",cerita:"Ijab kabul akan terucap, dua jiwa menjadi satu dalam restu leluhur dan doa semesta."}
+      waAdmin: "6281234567890",
+      rekening: [
+        { bank: "BCA", no: "1234567890", nama: "M. Nur Alfarizi", logo: "BCA" },
+        { bank: "Mandiri", no: "0987654321", nama: "Melinda Elfina Rahmawaty", logo: "MANDIRI" },
+        { bank: "QRIS", no: "QRIS All Payment", nama: "Scan untuk semua e-wallet", logo: "QRIS", qris: true }
       ],
-      teksPembuka:"Dengan memohon rahmat Gusti Allah, kami bermaksud menyelenggarakan pawiwahan ageng dalam balutan adat Jawi luhur.",
+      loveStory: [
+        { tahun: "2022", judul: "Pertemuan Pertama", cerita: "Awal perjalanan dua hati saling mengenal dan bertumbuh dalam kebersamaan." },
+        { tahun: "2025", judul: "Lamaran & Komitmen", cerita: "Mengikat janji suci pertunangan dengan restu serta doa dari kedua keluarga besar." },
+        { tahun: "2026", judul: "Menuju Pelaminan Suci", cerita: "Ijab kabul terucap, menyatukan dua jiwa dalam ikatan pernikahan yang suci dan penuh berkah." }
+      ],
+      teksPembuka: "Dengan memohon rahmat Allah SWT, kami bermaksud menyelenggarakan pawiwahan ageng dalam balutan kehangatan dan adat Jawi luhur.",
       
       scriptURL: "https://script.google.com/macros/s/AKfycbyY7WdtGvTzCSTam4pIxPTeRsXDAKmGHMQJzxvZ5mko3cE5BFSq9ed12uw0XWuWzUXe/exec",
       googleDrive: {
@@ -124,7 +117,7 @@
         folderId: "1yTfV6EvgDjRriEM8ETq2LuaHHdikOa4W",
         autoLoad: true
       },
-      musicURL:"./musik.mp3",
+      musicURL: "./musik.mp3",
       musik: {
         autoplay: true,
         loop: true,
@@ -165,7 +158,7 @@
         <img id="coverGunungan" src="" alt="Cover Element" class="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(212,175,55,0.6)]">
       </div>
       <p class="text-[#d4af37] tracking-[0.32em] text-[11px] mb-3 reveal">PAWIWAHAN AGENG</p>
-      <h1 id="coverNames" class="font-great text-5xl md:text-6xl text-[#f5e6c8] leading-none mb-2 reveal reveal-delay-1">Arjuna & Srikandi</h1>
+      <h1 id="coverNames" class="font-great text-5xl md:text-6xl text-[#f5e6c8] leading-none mb-2 reveal reveal-delay-1">Alfarizi & Elfina</h1>
       <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto my-4 reveal reveal-delay-2"></div>
       <p class="text-[#f5e6c8]/60 text-[13px] font-light tracking-wide mb-8 reveal reveal-delay-2">Kepada Yth. Bapak/Ibu/Saudara/i</p>
       
@@ -182,7 +175,7 @@
     </div>
   </section>
 
-  <!-- HERO DENGAN JOGLO EMAS PARALLAX -->
+  <!-- HERO -->
   <section id="hero" class="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20">
     <div class="absolute inset-0 overflow-hidden">
       <div id="heroBg" class="parallax-layer absolute inset-0 will-change-transform scale-[1.15] bg-cover bg-center" 
@@ -205,14 +198,14 @@
       <div class="reveal">
         <p class="text-[#d4af37] tracking-[0.4em] text-[10px] mb-6">PREMIUM JAVANESE INVITATION • JOGLO EMAS</p>
         <h2 class="font-cinzel text-[11px] tracking-[0.5em] text-[#f5e6c8]/70 mb-4">PAWIWAHAN AGENG</h2>
-        <h1 id="heroNames" class="font-great text-6xl md:text-[96px] text-[#f5e6c8] leading-none mb-6 drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">Arjuna & Srikandi</h1>
+        <h1 id="heroNames" class="font-great text-6xl md:text-[96px] text-[#f5e6c8] leading-none mb-6 drop-shadow-[0_2px_20px_rgba(0,0,0,0.8)]">Alfarizi & Elfina</h1>
         <div class="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent mx-auto mb-6"></div>
         <p id="heroText" class="font-cormorant text-[16px] md:text-[18px] leading-relaxed text-[#f5e6c8]/70 max-w-2xl mx-auto font-light">
-          Dengan memohon rahmat Gusti Allah, kami bermaksud menyelenggarakan pawiwahan ageng dalam balutan adat Jawi luhur.
+          Dengan memohon rahmat Allah SWT, kami bermaksud menyelenggarakan pawiwahan ageng dalam balutan kehangatan dan adat Jawi luhur.
         </p>
       </div>
       <div class="reveal reveal-delay-2 mt-10 flex items-center justify-center gap-3">
-        <div class="w-8 h-[1px] bg-[#d4af37]/30"></div><span class="text-[#d4af37] text-[10px] tracking-[0.3em]">20 • 06 • 2026</span><div class="w-8 h-[1px] bg-[#d4af37]/30"></div>
+        <div class="w-8 h-[1px] bg-[#d4af37]/30"></div><span class="text-[#d4af37] text-[10px] tracking-[0.3em]">03 • 10 • 2026</span><div class="w-8 h-[1px] bg-[#d4af37]/30"></div>
       </div>
       <div class="reveal reveal-delay-3 mt-16 flex flex-col items-center gap-2 opacity-60">
         <span class="text-[8px] tracking-[0.3em] text-[#f5e6c8]/40">SCROLL</span>
@@ -228,7 +221,7 @@
     <div class="relative max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
         <p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">SANG MEMPELAI</p>
-        <h2 class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">Dua jiwa dalam satu lakon</h2>
+        <h2 class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">Dua jiwa dalam satu ikatan</h2>
         <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/50 to-transparent mx-auto mt-6"></div>
       </div>
       <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -241,9 +234,9 @@
               </div>
               <div class="p-6 text-center">
                 <p class="text-[#d4af37] text-[10px] tracking-[0.3em] mb-2">THE GROOM</p>
-                <h3 id="namaPria" class="font-great text-4xl text-[#f5e6c8] mb-1">Raden Arjuna</h3>
-                <p id="namaLengkapPria" class="font-cormorant text-[15px] text-[#f5e6c8]/80 mb-2">Raden Arjuna Wijaya, S.T.</p>
-                <p id="ortuPria" class="text-[11px] text-[#f5e6c8]/40 italic">Putra dari Bpk. Sutejo & Ibu Sulastri</p>
+                <h3 id="namaPria" class="font-great text-4xl text-[#f5e6c8] mb-1">Alfarizi</h3>
+                <p id="namaLengkapPria" class="font-cormorant text-[15px] text-[#f5e6c8]/80 mb-2">M. Nur Alfarizi</p>
+                <p id="ortuPria" class="text-[11px] text-[#f5e6c8]/40 italic">Putra dari Bapak & Ibu</p>
               </div>
             </div>
           </div>
@@ -257,9 +250,9 @@
               </div>
               <div class="p-6 text-center">
                 <p class="text-[#d4af37] text-[10px] tracking-[0.3em] mb-2">THE BRIDE</p>
-                <h3 id="namaWanita" class="font-great text-4xl text-[#f5e6c8] mb-1">Srikandi</h3>
-                <p id="namaLengkapWanita" class="font-cormorant text-[15px] text-[#f5e6c8]/80 mb-2">Dewi Srikandi Ayu, S.Keb.</p>
-                <p id="ortuWanita" class="text-[11px] text-[#f5e6c8]/40 italic">Putri dari Bpk. Hadi Pranoto & Ibu Endang</p>
+                <h3 id="namaWanita" class="font-great text-4xl text-[#f5e6c8] mb-1">Elfina</h3>
+                <p id="namaLengkapWanita" class="font-cormorant text-[15px] text-[#f5e6c8]/80 mb-2">Melinda Elfina Rahmawaty</p>
+                <p id="ortuWanita" class="text-[11px] text-[#f5e6c8]/40 italic">Putri dari Bapak & Ibu</p>
               </div>
             </div>
           </div>
@@ -276,14 +269,14 @@
     <div class="relative max-w-4xl mx-auto text-center">
       <div class="reveal">
         <p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">MENUJU HARI BAHAGIA</p>
-        <h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-10">Saka pethukan nganti pelaminan</h2>
+        <h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-10">Menghitung Hari Bahagia</h2>
         <div class="grid grid-cols-4 gap-3 md:gap-6 max-w-xl mx-auto">
-          <div class="gold-border-glow rounded-xl p-[1px] reveal"><div class="rounded-[11px] bg-[#1a1814] py-5"><p id="cdHari" class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">12</p><p class="text-[9px] tracking-[0.2em] text-[#f5e6c8]/40 mt-1">HARI</p></div></div>
-          <div class="gold-border-glow rounded-xl p-[1px] reveal reveal-delay-1"><div class="rounded-[11px] bg-[#1a1814] py-5"><p id="cdJam" class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">08</p><p class="text-[9px] tracking-[0.2em] text-[#f5e6c8]/40 mt-1">JAM</p></div></div>
-          <div class="gold-border-glow rounded-xl p-[1px] reveal reveal-delay-2"><div class="rounded-[11px] bg-[#1a1814] py-5"><p id="cdMenit" class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">45</p><p class="text-[9px] tracking-[0.2em] text-[#f5e6c8]/40 mt-1">MENIT</p></div></div>
-          <div class="gold-border-glow rounded-xl p-[1px] reveal reveal-delay-3"><div class="rounded-[11px] bg-[#1a1814] py-5"><p id="cdDetik" class="font-cinzel text-3xl md:text-4xl text-[#d4af37]">20</p><p class="text-[9px] tracking-[0.2em] text-[#f5e6c8]/40 mt-1">DETIK</p></div></div>
+          <div class="gold-border-glow rounded-xl p-[1px] reveal"><div class="rounded-[11px] bg-[#1a1814] py-5"><p id="cdHari" class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">00</p><p class="text-[9px] tracking-[0.2em] text-[#f5e6c8]/40 mt-1">HARI</p></div></div>
+          <div class="gold-border-glow rounded-xl p-[1px] reveal reveal-delay-1"><div class="rounded-[11px] bg-[#1a1814] py-5"><p id="cdJam" class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">00</p><p class="text-[9px] tracking-[0.2em] text-[#f5e6c8]/40 mt-1">JAM</p></div></div>
+          <div class="gold-border-glow rounded-xl p-[1px] reveal reveal-delay-2"><div class="rounded-[11px] bg-[#1a1814] py-5"><p id="cdMenit" class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">00</p><p class="text-[9px] tracking-[0.2em] text-[#f5e6c8]/40 mt-1">MENIT</p></div></div>
+          <div class="gold-border-glow rounded-xl p-[1px] reveal reveal-delay-3"><div class="rounded-[11px] bg-[#1a1814] py-5"><p id="cdDetik" class="font-cinzel text-3xl md:text-4xl text-[#d4af37]">00</p><p class="text-[9px] tracking-[0.2em] text-[#f5e6c8]/40 mt-1">DETIK</p></div></div>
         </div>
-        <p class="mt-8 text-[12px] text-[#f5e6c8]/50 font-light flex items-center justify-center gap-2"><span class="w-1 h-1 rounded-full bg-[#d4af37]"></span><span id="countdownInfo">Sabtu, 20 Juni 2026 • 08.00 WIB • Dalem Ageng Keraton</span></p>
+        <p class="mt-8 text-[12px] text-[#f5e6c8]/50 font-light flex items-center justify-center gap-2"><span class="w-1 h-1 rounded-full bg-[#d4af37]"></span><span id="countdownInfo">Sabtu, 3 Oktober 2026 • 08.00 WIB</span></p>
       </div>
     </div>
   </section>
@@ -294,8 +287,8 @@
     <div class="relative max-w-6xl mx-auto">
       <div class="text-center mb-12 reveal"><p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">RANGKAIAN ACARA</p><h2 class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">Pawiwahan Ageng</h2></div>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="reveal gold-border-glow rounded-[18px] p-[1px]"><div class="rounded-[17px] bg-[#1a1814]/80 p-6 md:p-8"><div class="flex items-start justify-between mb-5"><div><p class="text-[#d4af37] text-[10px] tracking-[0.3em] mb-1">AKAD NIKAH</p><h3 id="lokasiAkad" class="font-cinzel text-[18px] text-[#f5e6c8]">Dalem Ageng Keraton Yogyakarta</h3><p id="alamatAkad" class="text-[11px] text-[#f5e6c8]/50 mt-1 leading-relaxed">Jl. Rotowijayan No.1, Panembahan, Kraton, Yogyakarta</p></div><div class="w-10 h-10 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 flex items-center justify-center"><span class="text-[#d4af37]">♡</span></div></div><p id="tanggalAkadText" class="text-[12px] text-[#f5e6c8]/60 mb-6">Sabtu, 20 Juni 2026 • 08.00 WIB</p><a id="linkMapsAkad" href="#" target="_blank" class="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] font-bold bg-[#f5e6c8] text-black px-5 py-3 rounded-full hover:bg-white transition-colors"><span>GOOGLE MAPS</span><span>↗</span></a></div></div>
-        <div class="reveal reveal-delay-1 gold-border-glow rounded-[18px] p-[1px]"><div class="rounded-[17px] bg-[#1a1814]/80 p-6 md:p-8"><div class="flex items-start justify-between mb-5"><div><p class="text-[#d4af37] text-[10px] tracking-[0.3em] mb-1">RESEPSI</p><h3 id="lokasiResepsi" class="font-cinzel text-[18px] text-[#f5e6c8]">Pendopo Royal Ambarrukmo</h3><p id="alamatResepsi" class="text-[11px] text-[#f5e6c8]/50 mt-1 leading-relaxed">Jl. Laksda Adisucipto No.81, Sleman, Yogyakarta</p></div><div class="w-10 h-10 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 flex items-center justify-center"><span class="text-[#d4af37]">✦</span></div></div><p id="tanggalResepsiText" class="text-[12px] text-[#f5e6c8]/60 mb-6">Sabtu, 20 Juni 2026 • 11.00 WIB - Selesai</p><a id="linkMapsResepsi" href="#" target="_blank" class="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] font-bold bg-[#f5e6c8] text-black px-5 py-3 rounded-full hover:bg-white transition-colors"><span>GOOGLE MAPS</span><span>↗</span></a></div></div>
+        <div class="reveal gold-border-glow rounded-[18px] p-[1px]"><div class="rounded-[17px] bg-[#1a1814]/80 p-6 md:p-8"><div class="flex items-start justify-between mb-5"><div><p class="text-[#d4af37] text-[10px] tracking-[0.3em] mb-1">AKAD NIKAH</p><h3 id="lokasiAkad" class="font-cinzel text-[18px] text-[#f5e6c8]">Dalem Ageng Keraton Yogyakarta</h3><p id="alamatAkad" class="text-[11px] text-[#f5e6c8]/50 mt-1 leading-relaxed">Jl. Rotowijayan No.1, Panembahan, Kraton, Yogyakarta</p></div><div class="w-10 h-10 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 flex items-center justify-center"><span class="text-[#d4af37]">♡</span></div></div><p id="tanggalAkadText" class="text-[12px] text-[#f5e6c8]/60 mb-6">Sabtu, 3 Oktober 2026 • 08.00 WIB</p><a id="linkMapsAkad" href="#" target="_blank" class="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] font-bold bg-[#f5e6c8] text-black px-5 py-3 rounded-full hover:bg-white transition-colors"><span>GOOGLE MAPS</span><span>↗</span></a></div></div>
+        <div class="reveal reveal-delay-1 gold-border-glow rounded-[18px] p-[1px]"><div class="rounded-[17px] bg-[#1a1814]/80 p-6 md:p-8"><div class="flex items-start justify-between mb-5"><div><p class="text-[#d4af37] text-[10px] tracking-[0.3em] mb-1">RESEPSI</p><h3 id="lokasiResepsi" class="font-cinzel text-[18px] text-[#f5e6c8]">Pendopo Royal Ambarrukmo</h3><p id="alamatResepsi" class="text-[11px] text-[#f5e6c8]/50 mt-1 leading-relaxed">Jl. Laksda Adisucipto No.81, Sleman, Yogyakarta</p></div><div class="w-10 h-10 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/20 flex items-center justify-center"><span class="text-[#d4af37]">✦</span></div></div><p id="tanggalResepsiText" class="text-[12px] text-[#f5e6c8]/60 mb-6">Sabtu, 3 Oktober 2026 • 11.00 WIB - Selesai</p><a id="linkMapsResepsi" href="#" target="_blank" class="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] font-bold bg-[#f5e6c8] text-black px-5 py-3 rounded-full hover:bg-white transition-colors"><span>GOOGLE MAPS</span><span>↗</span></a></div></div>
       </div>
     </div>
   </section>
@@ -406,8 +399,8 @@
   <footer class="relative py-16 px-5 text-center border-t border-[#d4af37]/10">
     <div class="max-w-4xl mx-auto">
       <div class="w-16 h-20 mx-auto mb-5 opacity-60"><img id="footerGunungan" src="" alt="Gunungan" class="w-full h-full object-contain parallax-layer" data-speed="0.3"></div>
-      <h3 id="footerNames" class="font-great text-3xl text-[#f5e6c8] mb-3">Arjuna & Srikandi</h3>
-      <p class="font-cormorant text-[13px] text-[#f5e6c8]/50 italic max-w-xl mx-auto leading-relaxed">Ya Tuhan, jadikan pernikahan ini seperti Arjuna dan Srikandi — penuh cinta, kesetiaan, dan kebijaksanaan.</p>
+      <h3 id="footerNames" class="font-great text-3xl text-[#f5e6c8] mb-3">Alfarizi & Elfina</h3>
+      <p class="font-cormorant text-[13px] text-[#f5e6c8]/50 italic max-w-xl mx-auto leading-relaxed">Ya Tuhan, berkahilah pernikahan ini dengan cinta, kesetiaan, dan kebahagiaan yang abadi.</p>
       <div class="mt-8 w-20 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/30 to-transparent mx-auto"></div>
       <p class="mt-8 text-[9px] tracking-[0.3em] text-[#f5e6c8]/20">JOGLO EMAS • PREMIUM JAVANESE INVITATION</p>
     </div>
@@ -464,7 +457,6 @@
       const jogloFallback = 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600';
       const gununganFallback = 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400';
 
-      // --- FIX PEMANGGILAN GAMBAR MEMPELAI & COVER ---
       setImg(document.getElementById('fotoPria'), CONFIG.pria.foto, jogloFallback);
       setImg(document.getElementById('fotoWanita'), CONFIG.wanita.foto, jogloFallback);
       setImg(document.getElementById('coverGunungan'), CONFIG.sampul.gambarMelayang || CONFIG.gunungan, gununganFallback);
@@ -529,9 +521,8 @@
       document.getElementById('waButton').href = `https://wa.me/${CONFIG.waAdmin}?text=Halo, saya ${guest} ingin konfirmasi kehadiran untuk acara ${CONFIG.pria.nama} & ${CONFIG.wanita.nama}`;
 
       const defaultUcapan = [
-        {nama:"Kanjeng Ratu Kidul",pesan:"Mugi tansah pinaringan kebahagiaan langgeng, kagem penganten kekalih. Rahayu!",kehadiran:"Hadir",waktu:"2 jam lalu"},
-        {nama:"Ki Dalang Seno",pesan:"Selamat menempuh hidup baru! Semoga seperti Arjuna & Srikandi, cinta kalian abadi.",kehadiran:"Hadir",waktu:"5 jam lalu"},
-        {nama:"Nyi Roro",pesan:"Turut berbahagia! Semoga menjadi keluarga sakinah mawadah warahmah.",kehadiran:"Hadir",waktu:"1 hari lalu"}
+        {nama:"Ahmad Hidayat",pesan:"Selamat menempuh hidup baru Alfarizi & Elfina! Mugi tansah pinaringan kebahagiaan langgeng.",kehadiran:"Hadir",waktu:"2 jam lalu"},
+        {nama:"Rian & Partner",pesan:"Selamat atas pernikahan kalian! Semoga menjadi keluarga sakinah mawaddah warahmah.",kehadiran:"Hadir",waktu:"5 jam lalu"}
       ];
       renderUcapan(defaultUcapan);
 
