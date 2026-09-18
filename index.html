@@ -66,24 +66,23 @@
     const CONFIG = {
       // ===== SAMPUL DEPAN / COVER - GANTI DISINI =====
       sampul: {
-        judulAtas: "PAWIWAHAN AGENG", // teks kecil di atas nama
-        judulBawah: "Kepada Yth. Bapak/Ibu/Saudara/i", // teks di bawah nama
-        tombol: "BUKA UNDANGAN", // teks tombol
-        background: "./pria.jpg", // background sampul (kalau mau beda)
+        judulAtas: "PAWIWAHAN AGENG",
+        judulBawah: "Kepada Yth. Bapak/Ibu/Saudara/i",
+        tombol: "BUKA UNDANGAN",
+        background: "./joglo.jpeg",
+        gambarMelayang: "./gunungan-emas.webp", // GANTI: Gambar/foto melayang di cover depan (misal: ./cover-logo.png atau ./gunungan-emas.webp)
       },
       // ===== GAMBAR KEMANTEN - GANTI FOTO PENGANTIN DISINI =====
-      // Foto pria & wanita pakai file terpisah biar gak bingung sama foto joglo
-      // Upload foto kamu dengan nama: pria.jpg & wanita.jpg
       pria: { 
         nama:"Raden Arjuna", 
         namaLengkap:"Raden Arjuna Wijaya, S.T.", 
-        foto:"./pria.jpg", // GANTI: ./pria.jpg atau ./foto-pengantin-pria.jpg
+        foto:"./pria.jpg", // GANTI: File foto pengantin pria
         ortu:"Putra dari Bpk. Sutejo & Ibu Sulastri" 
       },
       wanita: { 
         nama:"Srikandi", 
         namaLengkap:"Dewi Srikandi Ayu, S.Keb.", 
-        foto:"./wanita.jpg", // GANTI: ./wanita.jpg atau ./foto-pengantin-wanita.jpg
+        foto:"./wanita.jpg", // GANTI: File foto pengantin wanita
         ortu:"Putri dari Bpk. Hadi Pranoto & Ibu Endang" 
       },
       tanggalAkad:"2026-11-20T11:00:00",
@@ -94,15 +93,15 @@
       lokasiResepsi:"Pendopo Royal Ambarrukmo",
       alamatResepsi:"Jl. Laksda Adisucipto No.81, Sleman, Yogyakarta",
       mapsResepsi:"https://maps.google.com/?q=Royal+Ambarrukmo+Yogyakarta",
-      bgJoglo:"./joglo.jpeg", // TETAP PAKAI JOGLO EMAS
+      bgJoglo:"./joglo.jpeg",
       gunungan:"./gunungan-emas.webp",
       gallery:[
-            "./galeri1.jpg", // upload galeri1.jpg
-            "./galeri2.jpg", // upload galeri2.jpg
+            "./galeri1.jpg",
+            "./galeri2.jpg",
             "./galeri3.jpg",
             "./galeri4.jpg",
             "./galeri5.jpg",
-            "./galeri6.jpg"  // upload galeri6.jpg
+            "./galeri6.jpg"
         ],
       waAdmin:"6281234567890",
       rekening:[
@@ -118,22 +117,20 @@
       ],
       teksPembuka:"Dengan memohon rahmat Gusti Allah, kami bermaksud menyelenggarakan pawiwahan ageng dalam balutan adat Jawi luhur.",
       
-      // Data terintegrasi dimasukkan ke dalam objek CONFIG
       scriptURL: "https://script.google.com/macros/s/AKfycbyY7WdtGvTzCSTam4pIxPTeRsXDAKmGHMQJzxvZ5mko3cE5BFSq9ed12uw0XWuWzUXe/exec",
       googleDrive: {
         enabled: true,
-        sheetId: "14XWABgGQl5X5cQ97qTK1VePIo_l5hUNKKq8zoInzZ8s", // Diambil ID-nya saja dari URL
-        folderId: "1yTfV6EvgDjRriEM8ETq2LuaHHdikOa4W", // Diambil ID-nya saja dari URL
+        sheetId: "14XWABgGQl5X5cQ97qTK1VePIo_l5hUNKKq8zoInzZ8s",
+        folderId: "1yTfV6EvgDjRriEM8ETq2LuaHHdikOa4W",
         autoLoad: true
       },
-      // ===== MUSIK SAAT UNDANGAN DIBUKA =====
-  musicURL:"./musik.mp3", // GANTI: ./musik.mp3 atau URL
-  musik: {
-  autoplay: true, // true = otomatis play saat buka undangan
-  loop: true, // true = musik berulang
-  volume: 0.6, // 0.0 - 1.0 (0.6 = 60%)
-  judul: "Gamelan Kebo Giro" // judul yang tampil di player
-},
+      musicURL:"./musik.mp3",
+      musik: {
+        autoplay: true,
+        loop: true,
+        volume: 0.6,
+        judul: "Gamelan Kebo Giro"
+      },
     };
   </script>
 
@@ -151,7 +148,6 @@
     <span id="musicIcon" class="text-[#d4af37]">🎵</span>
   </button>
   
-</body>
   <!-- COVER -->
   <section id="cover" class="fixed inset-0 z-[80] flex items-center justify-center overflow-hidden bg-[#0a0907] transition-opacity duration-[1200ms]">
     <div class="absolute inset-0 batik-pattern opacity-30 parallax-layer" data-speed="0.2"></div>
@@ -166,7 +162,7 @@
 
     <div class="relative z-20 text-center px-6 max-w-lg w-full">
       <div class="mx-auto w-24 h-36 mb-6 anim-float parallax-layer" data-speed="0.8">
-        <img id="coverGunungan" src="" alt="Gunungan Emas" class="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(212,175,55,0.6)]">
+        <img id="coverGunungan" src="" alt="Cover Element" class="w-full h-full object-contain drop-shadow-[0_0_30px_rgba(212,175,55,0.6)]">
       </div>
       <p class="text-[#d4af37] tracking-[0.32em] text-[11px] mb-3 reveal">PAWIWAHAN AGENG</p>
       <h1 id="coverNames" class="font-great text-5xl md:text-6xl text-[#f5e6c8] leading-none mb-2 reveal reveal-delay-1">Arjuna & Srikandi</h1>
@@ -189,15 +185,11 @@
   <!-- HERO DENGAN JOGLO EMAS PARALLAX -->
   <section id="hero" class="relative min-h-[100vh] flex items-center justify-center overflow-hidden pt-20">
     <div class="absolute inset-0 overflow-hidden">
-      <!-- Layer 1: Joglo Emas - parallax slow -->
       <div id="heroBg" class="parallax-layer absolute inset-0 will-change-transform scale-[1.15] bg-cover bg-center" 
            style="background-image:url('./joglo.jpeg'); filter:brightness(0.9) contrast(1.1);">
       </div>
-      <!-- Layer 2: Overlay gradient -->
       <div class="absolute inset-0 bg-gradient-to-b from-[#0d0c0a]/10 via-[#0d0c0a]/40 to-[#0d0c0a] parallax-layer" data-speed="0.1"></div>
-      <!-- Layer 3: Batik pattern parallax fast -->
       <div class="absolute inset-0 batik-pattern opacity-20 parallax-layer" data-speed="0.4"></div>
-      <!-- Layer 4: Vignette emas -->
       <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(212,175,55,0.12),transparent_60%)]"></div>
     </div>
 
@@ -222,7 +214,6 @@
       <div class="reveal reveal-delay-2 mt-10 flex items-center justify-center gap-3">
         <div class="w-8 h-[1px] bg-[#d4af37]/30"></div><span class="text-[#d4af37] text-[10px] tracking-[0.3em]">20 • 06 • 2026</span><div class="w-8 h-[1px] bg-[#d4af37]/30"></div>
       </div>
-      <!-- Scroll indicator -->
       <div class="reveal reveal-delay-3 mt-16 flex flex-col items-center gap-2 opacity-60">
         <span class="text-[8px] tracking-[0.3em] text-[#f5e6c8]/40">SCROLL</span>
         <div class="w-[1px] h-12 bg-gradient-to-b from-[#d4af37]/50 to-transparent animate-pulse"></div>
@@ -233,8 +224,7 @@
   <!-- MEMPELAI -->
   <section id="mempelai" class="relative py-24 px-5 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-[#0d0c0a] via-[#15120e] to-[#0d0c0a]"></div>
-    <!-- Watermark Joglo emas low opacity parallax -->
-    <div class="absolute inset-0 opacity-[0.03] parallax-layer bg-cover bg-center" style="background-image:url('./joglo-emas.webp')" data-speed="0.15"></div>
+    <div class="absolute inset-0 opacity-[0.03] parallax-layer bg-cover bg-center" style="background-image:url('./joglo.jpeg')" data-speed="0.15"></div>
     <div class="relative max-w-6xl mx-auto">
       <div class="text-center mb-16 reveal">
         <p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">SANG MEMPELAI</p>
@@ -246,7 +236,7 @@
           <div class="gold-border-glow rounded-[20px] p-[1px]">
             <div class="rounded-[19px] bg-[#1a1814] overflow-hidden">
               <div class="aspect-[4/5] overflow-hidden relative">
-                <img id="fotoPria" src="" alt="pria.jpg" class="w-full h-full object-cover smooth-scale">
+                <img id="fotoPria" src="" alt="Foto Pria" class="w-full h-full object-cover smooth-scale">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               </div>
               <div class="p-6 text-center">
@@ -262,7 +252,7 @@
           <div class="gold-border-glow rounded-[20px] p-[1px]">
             <div class="rounded-[19px] bg-[#1a1814] overflow-hidden">
               <div class="aspect-[4/5] overflow-hidden relative">
-                <img id="fotoWanita" src="" alt="wanita.jpg" class="w-full h-full object-cover smooth-scale">
+                <img id="fotoWanita" src="" alt="Foto Wanita" class="w-full h-full object-cover smooth-scale">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
               </div>
               <div class="p-6 text-center">
@@ -319,10 +309,10 @@
     </div>
   </section>
 
-  <!-- GALLERY - JOGLO EMAS -->
+  <!-- GALLERY -->
   <section id="gallery" class="relative py-20 px-5 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-[#0d0c0a] via-[#15120e] to-[#0d0c0a]"></div>
-    <div class="absolute inset-0 opacity-[0.04] bg-cover bg-center parallax-layer" style="background-image:url('./joglo-emas.webp')" data-speed="0.2"></div>
+    <div class="absolute inset-0 opacity-[0.04] bg-cover bg-center parallax-layer" style="background-image:url('./joglo.jpeg')" data-speed="0.2"></div>
     <div class="relative max-w-6xl mx-auto">
       <div class="text-center mb-10 reveal"><p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">POTRET KATRESNAN • JOGLO EMAS</p><h2 class="font-cinzel text-3xl md:text-4xl text-[#f5e6c8]">Galeri</h2></div>
       <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4"></div>
@@ -330,88 +320,77 @@
     </div>
   </section>
 
-<!-- RSVP -->
-<section id="rsvp" class="relative py-20 px-5 overflow-hidden">
-  <div class="absolute inset-0 bg-[#0f0e0c]"></div>
-  <div class="relative max-w-5xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-8 items-start">
-      
-      <!-- Kolom Kiri: Form RSVP -->
-      <div class="reveal">
-        <p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">KONFIRMASI KEHADIRAN</p>
-        <h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-6">RSVP</h2>
-        <p class="text-[13px] text-[#f5e6c8]/60 leading-relaxed mb-8 font-light">Merupakan kehormatan bagi kami apabila berkenan hadir memberikan doa restu.</p>
+  <!-- RSVP -->
+  <section id="rsvp" class="relative py-20 px-5 overflow-hidden">
+    <div class="absolute inset-0 bg-[#0f0e0c]"></div>
+    <div class="relative max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
+        <div class="reveal">
+          <p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">KONFIRMASI KEHADIRAN</p>
+          <h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-6">RSVP</h2>
+          <p class="text-[13px] text-[#f5e6c8]/60 leading-relaxed mb-8 font-light">Merupakan kehormatan bagi kami apabila berkenan hadir memberikan doa restu.</p>
+          
+          <div class="gold-border-glow rounded-[18px] p-[1px]">
+            <div class="rounded-[17px] bg-[#1a1814] p-5">
+              <form id="rsvpForm" class="space-y-4">
+                <div>
+                  <label for="rsvpNama" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">NAMA LENGKAP</label>
+                  <input type="text" id="rsvpNama" placeholder="Tulis nama Anda" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label for="rsvpTamu" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">JUMLAH TAMU</label>
+                    <select id="rsvpTamu" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
+                      <option value="1">1 Orang</option>
+                      <option value="2">2 Orang</option>
+                      <option value="3">3 Orang</option>
+                      <option value="4">4 Orang</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="rsvpHadir" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">KEHADIRAN</label>
+                    <select id="rsvpHadir" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
+                      <option value="Hadir">Hadir</option>
+                      <option value="Tidak Hadir">Tidak Hadir</option>
+                      <option value="Ragu">Ragu</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div>
+                  <label for="rsvpPesan" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">PESAN</label>
+                  <textarea id="rsvpPesan" placeholder="Tulis doa terbaik..." rows="3" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-[16px] px-4 py-3 text-[13px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors resize-none"></textarea>
+                </div>
+                
+                <button type="submit" class="w-full bg-gradient-to-r from-[#d4af37] to-[#8c6b1a] text-black font-bold tracking-[0.18em] text-[11px] py-3.5 rounded-full flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all">
+                  <span>KIRIM KONFIRMASI</span>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
         
-        <div class="gold-border-glow rounded-[18px] p-[1px]">
-          <div class="rounded-[17px] bg-[#1a1814] p-5">
-            <form id="rsvpForm" class="space-y-4">
-              <!-- Nama -->
-              <div>
-                <label for="rsvpNama" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">NAMA LENGKAP</label>
-                <input type="text" id="rsvpNama" placeholder="Tulis nama Anda" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
-              </div>
-              
-              <!-- Tamu & Kehadiran -->
-              <div class="grid grid-cols-2 gap-3">
-                <div>
-                  <label for="rsvpTamu" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">JUMLAH TAMU</label>
-                  <select id="rsvpTamu" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
-                    <option value="1">1 Orang</option>
-                    <option value="2">2 Orang</option>
-                    <option value="3">3 Orang</option>
-                    <option value="4">4 Orang</option>
-                  </select>
-                </div>
-                <div>
-                  <label for="rsvpHadir" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">KEHADIRAN</label>
-                  <select id="rsvpHadir" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[13px] text-[#f5e6c8] focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
-                    <option value="Hadir">Hadir</option>
-                    <option value="Tidak Hadir">Tidak Hadir</option>
-                    <option value="Ragu">Ragu</option>
-                  </select>
-                </div>
-              </div>
-              
-              <!-- Pesan -->
-              <div>
-                <label for="rsvpPesan" class="text-[10px] tracking-[0.2em] text-[#f5e6c8]/50">PESAN</label>
-                <textarea id="rsvpPesan" placeholder="Tulis doa terbaik..." rows="3" class="mt-2 w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-[16px] px-4 py-3 text-[13px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors resize-none"></textarea>
-              </div>
-              
-              <button type="submit" class="w-full bg-gradient-to-r from-[#d4af37] to-[#8c6b1a] text-black font-bold tracking-[0.18em] text-[11px] py-3.5 rounded-full flex items-center justify-center gap-2 hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all">
-                <span>KIRIM KONFIRMASI</span>
-              </button>
-            </form>
+        <div class="reveal reveal-delay-1">
+          <p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">UCAPAN & DOA</p>
+          <h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-6">Pangestuti</h2>
+          
+          <div id="ucapanList" class="space-y-3 max-h-[500px] overflow-y-auto pr-1"></div>
+          
+          <div class="mt-6 gold-border-glow rounded-[18px] p-[1px]">
+            <div class="rounded-[17px] bg-[#1a1814] p-5">
+              <h4 class="font-cinzel text-[12px] text-[#f5e6c8] mb-4 flex items-center gap-2">✦ Kirim Doa Restu</h4>
+              <form id="ucapanForm" class="space-y-3">
+                <input type="text" id="ucapanNama" placeholder="Nama Anda" class="w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[12px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
+                <textarea id="ucapanPesan" placeholder="Tulis ucapan..." rows="3" class="w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-[16px] px-4 py-3 text-[12px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors resize-none" required></textarea>
+                <button type="submit" class="w-full bg-[#f5e6c8] text-black font-bold tracking-[0.18em] text-[10px] py-3 rounded-full hover:bg-white transition-colors">KIRIM UCAPAN</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-      
-      <!-- Kolom Kanan: Ucapan & Doa -->
-      <div class="reveal reveal-delay-1">
-        <p class="text-[#d4af37] tracking-[0.35em] text-[10px] mb-3">UCAPAN & DOA</p>
-        <h2 class="font-cinzel text-2xl md:text-3xl text-[#f5e6c8] mb-6">Pangestuti</h2>
-        
-        <!-- List Ucapan -->
-        <div id="ucapanList" class="space-y-3 max-h-[500px] overflow-y-auto pr-1">
-          <!-- Data ucapan akan masuk ke sini via JS -->
-        </div>
-        
-        <!-- Form Kirim Doa -->
-        <div class="mt-6 gold-border-glow rounded-[18px] p-[1px]">
-          <div class="rounded-[17px] bg-[#1a1814] p-5">
-            <h4 class="font-cinzel text-[12px] text-[#f5e6c8] mb-4 flex items-center gap-2">✦ Kirim Doa Restu</h4>
-            <form id="ucapanForm" class="space-y-3">
-              <input type="text" id="ucapanNama" placeholder="Nama Anda" class="w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-full px-4 py-3 text-[12px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors" required>
-              <textarea id="ucapanPesan" placeholder="Tulis ucapan..." rows="3" class="w-full bg-[#0d0c0a] border border-[#d4af37]/15 rounded-[16px] px-4 py-3 text-[12px] text-[#f5e6c8] placeholder:text-[#f5e6c8]/20 focus:outline-none focus:border-[#d4af37]/40 transition-colors resize-none" required></textarea>
-              <button type="submit" class="w-full bg-[#f5e6c8] text-black font-bold tracking-[0.18em] text-[10px] py-3 rounded-full hover:bg-white transition-colors">KIRIM UCAPAN</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- AMPLOP -->
   <section id="amplop" class="relative py-20 px-5 overflow-hidden">
@@ -445,28 +424,22 @@
     function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
     requestAnimationFrame(raf);
 
-    // Progress bar
     lenis.on('scroll', ({progress}) => {
       document.getElementById('progress').style.width = (progress * 100) + '%';
     });
 
     // PARALLAX SMOOTH MOTION
-    let lastScroll = 0;
     function updateParallax(){
       const scrolled = window.scrollY;
-      const rate = scrolled * -0.5;
-      // Hero joglo scale + parallax
       const heroBg = document.getElementById('heroBg');
       if(heroBg){
         const heroScale = 1.15 - (scrolled * 0.00015);
         const heroY = scrolled * 0.4;
         heroBg.style.transform = `translate3d(0, ${heroY}px, 0) scale(${Math.max(1, heroScale)})`;
       }
-      // All parallax layers
       document.querySelectorAll('.parallax-layer').forEach(el => {
         const speed = parseFloat(el.dataset.speed) || 0.2;
         const y = scrolled * speed;
-        // Jangan timpa heroBg yang sudah di-handle
         if(el.id !== 'heroBg'){
           el.style.transform = `translate3d(0, ${y * 0.3}px, 0)`;
         }
@@ -483,23 +456,23 @@
       const guest = getGuestName();
       document.getElementById('guestName').textContent = guest;
 
-      // SET GAMBAR JOGLO EMAS - TETAP PAKAI YANG ASLI
       const setImg = (el, src, fallback) => {
+        if(!el) return;
         el.src = src;
         el.onerror = () => { if(fallback) el.src = fallback; };
       };
       const jogloFallback = 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1600';
       const gununganFallback = 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=400';
 
-      // Pakai joglo-emas.webp asli
-      setImg(document.getElementById('fotoPria'), CONFIG.pria.jpg, jogloFallback);
-      setImg(document.getElementById('fotoWanita'), CONFIG.wanita.jpg, gununganFallback);
-      setImg(document.getElementById('coverGunungan'), CONFIG.pria.jpg, gununganFallback);
+      // --- FIX PEMANGGILAN GAMBAR MEMPELAI & COVER ---
+      setImg(document.getElementById('fotoPria'), CONFIG.pria.foto, jogloFallback);
+      setImg(document.getElementById('fotoWanita'), CONFIG.wanita.foto, jogloFallback);
+      setImg(document.getElementById('coverGunungan'), CONFIG.sampul.gambarMelayang || CONFIG.gunungan, gununganFallback);
+      
       setImg(document.getElementById('footerGunungan'), CONFIG.gunungan, gununganFallback);
       setImg(document.getElementById('floatGunungan1'), CONFIG.gunungan, gununganFallback);
       setImg(document.getElementById('floatGunungan2'), CONFIG.gunungan, gununganFallback);
 
-      // Hero background joglo emas
       document.getElementById('heroBg').style.backgroundImage = `url('${CONFIG.bgJoglo}'), url('${jogloFallback}')`;
 
       document.getElementById('coverNames').textContent = `${CONFIG.pria.nama} & ${CONFIG.wanita.nama}`;
@@ -529,7 +502,7 @@
       document.getElementById('countdownInfo').textContent = akadStr + ' • ' + CONFIG.lokasiAkad;
 
       const storyContainer = document.getElementById('storyContainer');
-      CONFIG.loveStory.forEach((item, idx) => {
+      CONFIG.loveStory.forEach((item) => {
         const div = document.createElement('div');
         div.className = `reveal relative flex md:flex-row flex-row gap-4 md:gap-8`;
         div.innerHTML = `<div class="hidden md:block md:w-1/2"></div><div class="absolute left-[19px] md:left-1/2 top-1 w-2 h-2 rounded-full bg-[#d4af37] border-2 border-[#0f0e0c] md:-translate-x-1/2 z-10"></div><div class="ml-10 md:ml-0 md:w-1/2"><div class="gold-border-glow rounded-xl p-[1px]"><div class="rounded-[11px] bg-[#1a1814]/80 p-4"><p class="text-[#d4af37] text-[10px] tracking-[0.2em] font-bold mb-1">${item.tahun} • ${item.judul}</p><p class="text-[12px] leading-relaxed text-[#f5e6c8]/70 font-light">${item.cerita}</p></div></div></div>`;
@@ -583,15 +556,7 @@
       },{threshold:0.15, rootMargin:'0px 0px -50px 0px'});
       document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-      document.getElementById('btnBuka').addEventListener('click',()=>{
-        const cover = document.getElementById('cover');
-        cover.classList.add('curtain-open');
-        lenis.scrollTo('#hero',{offset:0,duration:1.5});
-        setTimeout(()=>{ cover.style.opacity='0'; cover.style.pointerEvents='none'; },900);
-        setTimeout(()=>{ cover.style.display='none'; lenis.start(); },2000);
-      });
-
-     // 3. Audio & Cover Control
+      // Audio & Cover Control
       const bgMusic = document.getElementById('bgMusic');
       const musicBtn = document.getElementById('musicBtn');
       const musicIcon = document.getElementById('musicIcon');
@@ -605,16 +570,16 @@
       let isPlaying = false;
 
       btnBuka.addEventListener('click', () => {
-        // Buka Tirai
         cover.classList.add('curtain-open');
         document.body.classList.remove('lenis-stopped');
+        lenis.scrollTo('#hero',{offset:0,duration:1.5});
         
         setTimeout(() => {
           cover.style.opacity = '0';
-          setTimeout(() => { cover.style.display = 'none'; }, 1200);
+          cover.style.pointerEvents = 'none';
+          setTimeout(() => { cover.style.display = 'none'; lenis.start(); }, 1200);
         }, 800);
 
-        // Putar Musik
         if (CONFIG.musik.autoplay) {
           bgMusic.play().then(() => {
             isPlaying = true;
@@ -638,8 +603,7 @@
           isPlaying = true;
         }
       });
-      
-      // Lenis stop saat cover masih ada
+
       lenis.stop();
 
       window.openLightbox = (index)=>{
@@ -695,9 +659,5 @@
       if(guest!=='Tamu Undangan'){ document.getElementById('rsvpNama').value=guest; document.getElementById('ucapanNama').value=guest; }
     });
   </script>
-
-  <div class="fixed bottom-2 left-2 z-[99] bg-black/80 backdrop-blur text-[9px] text-[#f5e6c8]/30 px-2 py-1 rounded-full border border-[#d4af37]/10">
-   
-  </div>
 </body>
 </html>
